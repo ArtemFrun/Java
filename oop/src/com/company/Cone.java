@@ -12,13 +12,41 @@ package com.company;
 *
  */
 
+import java.util.Objects;
+
 public class Cone {
     private int radius;
     private int height;
 
+
+    public Cone() {
+          }
+
     public Cone(int radius, int height) {
         this.radius = radius;
         this.height = height;
+    }
+
+    @Override
+    public String toString() {
+        return "Cone{" +
+                "radius=" + radius +
+                ", height=" + height +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cone cone = (Cone) o;
+        return getRadius() == cone.getRadius() &&
+                getHeight() == cone.getHeight();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getRadius(), getHeight());
     }
 
     public int getRadius() {
