@@ -14,8 +14,7 @@ package com.company;
 
 import java.util.Objects;
 
-public class Cone {
-    private int radius;
+public class Cone extends Circle implements IInfo{
     private int height;
 
 
@@ -23,14 +22,14 @@ public class Cone {
           }
 
     public Cone(int radius, int height) {
-        this.radius = radius;
+        super(radius);
         this.height = height;
     }
 
     @Override
     public String toString() {
         return "Cone{" +
-                "radius=" + radius +
+                "radius=" + super.toString() +
                 ", height=" + height +
                 '}';
     }
@@ -49,14 +48,6 @@ public class Cone {
         return Objects.hash(getRadius(), getHeight());
     }
 
-    public int getRadius() {
-        return radius;
-    }
-
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
-
     public int getHeight() {
         return height;
     }
@@ -67,17 +58,12 @@ public class Cone {
 
     public double getConeForming()
     {
-        return Math.sqrt((this.getRadius()*this.getRadius())+(this.getHeight()*this.getHeight()));
-    }
-
-    public double getBaseArea()
-    {
-        return Math.PI*(this.getRadius()*this.getRadius());
+        return Math.sqrt((super.getRadius()*super.getRadius())+(this.getHeight()*this.getHeight()));
     }
 
     public double getSurfaceArea()
     {
-        return Math.PI*this.getRadius()*this.getConeForming();
+        return Math.PI*super.getRadius()*this.getConeForming();
     }
 
     public double getArea()
@@ -85,13 +71,24 @@ public class Cone {
         return this.getBaseArea()+this.getSurfaceArea();
     }
 
-    public int getDiameter()
-    {
-        return this.getRadius()*2;
-    }
-
     public double getVolume()
     {
-        return ((Math.PI*(this.getRadius()*this.getRadius())*this.getHeight())/3);
+        return ((Math.PI*(super.getRadius()*super.getRadius())*this.getHeight())/3);
+    }
+
+    @Override
+    public String toXML() {
+        return "<Cone>" +
+                "<radius>" + this.getRadius() + "</radius>" +
+                "<height>" + this.getHeight() + "</height>" +
+                "</Cone>";
+    }
+
+    @Override
+    public String toJson() {
+        return "{" + "\"Cone\":" +
+                "{" + "\"radius\":" + this.getRadius() +
+                "\"height\":" + this.getHeight() + "}"
+                + "}";
     }
 }

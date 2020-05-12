@@ -19,6 +19,8 @@ public class Main {
         System.out.println(myGarden);
         System.out.println(myGarden.getArea());
 
+        System.out.println(myGarden.toXML());
+
         Rectangle hisGarden = new Rectangle();
         hisGarden.setLength(12);
         hisGarden.setWidths(5);
@@ -37,5 +39,8 @@ public class Main {
         System.out.println(myCone.getBaseArea());
         System.out.println(myCone.getDiameter());
         System.out.println(myCone.getVolume());
+
+
+        Triangle fourth = TriangleFactory.create(10,1,1);
     }
 }

@@ -1,35 +1,38 @@
 package com.company;
 
+import java.time.LocalDate;
+
 public class Student {
 
-    private String name;
-    private int age;
+    private String firstName;
+    private String lastName;
+    private String patronymic;
+    private String gender;
+    private LocalDate birthday;
+    private String citizenship;
+    private String phoneNumber;
+    private String passportSeries;
+    private int passportID;
+    private LocalDate dateOfIssueOfPassport;
+    private String whoIssuedThePassport;
+    private String registrationAddress;
+    private String actualAddress;
+    private String militaryDutyInformation;
+    private Boolean socialBenefits;
+    private String formOfTraining;
+    private String formOfPayment;
+    private String group;
+    private String department;
+    private String chair;
+    private String specialty;
+    private Double studentPerformance;
+    private int recordNumber;
+    private String studentStatus;
+    private LocalDate receiptDate;
+    private LocalDate dateOfIssue;
+    private Boolean works;
 
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Student() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-           return age;
-    }
-
-    public void setAge(int age) {
-        if(age >=16) {
-            this.age = age;
-        }
-        else
-        {
-            System.out.println("Incorrect age");
-            this.age = 0;
-        }
-    }
 }

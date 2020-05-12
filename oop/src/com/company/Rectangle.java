@@ -40,6 +40,10 @@ public class Rectangle {
         return this.getLength()*this.getWidths();
     }
 
+    public static int getArea(int length, int widths)
+    {
+        return length*widths;
+    }
     public int getPerimeter()
     {
         return 2*(this.getLength() + this.getWidths());
@@ -51,6 +55,27 @@ public class Rectangle {
                 "length=" + length +
                 ", widths=" + widths +
                 '}';
+    }
+
+    public String toXML()
+    {
+        return "<Rectangle>" +
+                "<length>" + this.getLength() + "</length>" +
+                "<widths>" + this.getWidths() + "</widths>" +
+                "</Rectangle>";
+    }
+
+    public String toJson()
+    {
+        return "{" + "\"Rectangle\":" +
+        "{" + "\"length\":" + this.getLength() +
+                "\"widths\":" + this.getWidths() + "}"
+        + "}";
+    }
+
+    public String toConsole()
+    {
+        return null;
     }
 
     @Override
